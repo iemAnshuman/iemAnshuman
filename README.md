@@ -1,27 +1,33 @@
-<h1 align="center">Hey, I'm Anshuman 👋</h1>
+<h1 align="center">Hi, I'm Anshuman Agrawal 👋</h1>
 
 <p align="center">
-  Human learning machines, one proof & prototype at a time.
+  <b>HPC & Deep Learning Systems Researcher</b><br>
+  <i>Optimizing the "plumbing" of AI — from kernels to clusters.</i>
 </p>
 
 ---
 
-### 🚀 Now
+### 🚀 Current Focus
+I research **low-level optimization** for Deep Learning workloads, focusing on bridging the gap between high-level PyTorch APIs and hardware reality. My work involves:
+* ⚡ **Kernel Optimization:** Writing custom **OpenAI Triton** kernels to beat eager execution (Fused Attention, Softmax).
+* 📉 **Quantization:** Implementing **4-bit/INT8** inference pipelines (AWQ/GPTQ) for deploying 7B+ models on consumer GPUs.
+* 🌐 **Distributed Systems:** Analyzing **NCCL** communication primitives and distributed training bottlenecks (DDP/FSDP).
 
-* 📚 Deep–diving into math foundations (linear algebra, probability, optimization)
-* 🤖 Implementing ML/DL algorithms from scratch (CS229 roadmap)
-* 🛠 Shipping small, focused projects & blogging the lessons
+### 🛠 Tech Stack
 
-### 🛠 Stack I reach for
+| Domain | Tools & Frameworks |
+| :--- | :--- |
+| **HPC & Kernels** | `OpenAI Triton` · `CUDA (Concepts)` · `NVIDIA Nsight Compute` · `TensorRT` |
+| **Deep Learning** | `PyTorch` · `HuggingFace (Transformers/PEFT)` · `AutoGPTQ` · `ONNX Runtime` |
+| **Infrastructure** | `Docker` · `Linux (Kernel/eBPF)` · `Bash` · `Slurm` |
+| **Core** | `Python (AsyncIO)` · `C++` · `PostgreSQL` · `NumPy` |
 
-`Python` · `PyTorch` · `scikit‑learn` · `NumPy` · `Pandas` · `LaTeX`
-
-### 🌐 Elsewhere
-
-<a href="https://x.com/justhuman567">X/Twitter</a> • <a href="mailto:asquare567@gmail.com">Email</a>
+### 🔬 Active Experiments
+* **[high-performance-deep-learning](https://github.com/iemAnshuman/high-performance-deep-learning)**: My primary research repo containing custom Triton kernels, quantization benchmarks, and distributed system simulations.
+* **[Neuro-Hedge](https://github.com/iemAnshuman/neuro-hedge-sim)**: A vectorized Monte Carlo simulation engine for Reinforcement Learning.
 
 ---
 
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=iemAnshuman&show_icons=true&hide_rank=true&theme=transparent" alt="Anshuman's GitHub stats" />
+  <a href="mailto:asquare567@gmail.com">Email</a> • <a href="https://asquare.blog">Research Blog</a>
 </p>
