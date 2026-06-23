@@ -22,10 +22,6 @@ I research **low-level optimization** for Deep Learning workloads, focusing on b
 | **Infrastructure** | `Docker` · `Linux (Kernel/eBPF)` · `Bash` · `Slurm` |
 | **Core** | `Python (AsyncIO)` · `C++` · `PostgreSQL` · `NumPy` |
 
-### Active Experiments
-* **[high-performance-deep-learning](https://github.com/iemAnshuman/high-performance-deep-learning)**: My primary research repo containing custom Triton kernels, quantization benchmarks, and distributed system simulations.
-* **[Neuro-Hedge](https://github.com/iemAnshuman/neuro-hedge-sim)**: A vectorized Monte Carlo simulation engine for Reinforcement Learning.
-
 ---
 
 <p align="center">
