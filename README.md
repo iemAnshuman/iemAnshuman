@@ -82,3 +82,51 @@ model-free artifact while checking that the reduction preserves:
 
 ```text
 workload trace → compile → canary → replay → compare → pass / warn / fail
+````
+
+It supports deterministic simulation, PyTorch Kineto trace import, PARAM
+comms-replay export, fidelity verification, tamper-evident reports, and
+fail-closed behavioural minimization.
+
+---
+
+### Current focus
+
+* Hierarchical collective algorithms and distributed runtime semantics
+* GPU communication primitives and compute–communication overlap
+* Communication-tail behaviour and configuration-ranking preservation
+* Performance benchmarking on clusters and accelerator systems
+* C++ correctness, ownership, concurrency, and low-level optimization
+
+---
+
+### Technical stack
+
+| Domain                  | Tools and technologies                                        |
+| ----------------------- | ------------------------------------------------------------- |
+| **Distributed systems** | C++20, HPX, collective algorithms, futures, synchronization   |
+| **AI infrastructure**   | PyTorch, NCCL, Triton, Kineto, PARAM comms-replay             |
+| **HPC**                 | Linux, Slurm, cluster benchmarking, CMake                     |
+| **Performance**         | Profiling, latency distributions, tail analysis, trace replay |
+| **General**             | Python, Bash, Docker, Git, NumPy                              |
+
+---
+
+### Writing
+
+I write investigation-style articles about systems, performance, distributed
+computing, and machine learning infrastructure.
+
+[Read my research blog →](https://asquare.blog)
+
+---
+
+<p align="center">
+  <a href="mailto:asquare567@gmail.com">Email</a>
+  ·
+  <a href="https://asquare.blog">Blog</a>
+  ·
+  <a href="https://x.com/justhuman567">X</a>
+  ·
+  <a href="https://github.com/iemAnshuman">GitHub</a>
+</p>
