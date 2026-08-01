@@ -1,8 +1,8 @@
 <h1 align="center">Anshuman Agrawal</h1>
 
 <p align="center">
-  <strong>HPC & AI Systems Engineer</strong><br>
-  <em>Building the communication and performance layer beneath modern AI.</em>
+  <strong>Distributed AI Systems Researcher</strong><br>
+  <em>Accelerator communication, memory movement, and collective operations.</em>
 </p>
 
 <p align="center">
@@ -10,114 +10,57 @@
     <img src="https://img.shields.io/badge/GSoC-2026-f9ab00?style=flat-square&logo=google" alt="Google Summer of Code 2026">
   </a>
   <a href="https://github.com/TheHPXProject/hpx/pulls?q=is%3Apr+author%3AiemAnshuman+is%3Amerged">
-    <img src="https://img.shields.io/badge/HPX-17%20merged%20PRs-2ea44f?style=flat-square&logo=github" alt="17 merged HPX pull requests">
+    <img src="https://img.shields.io/badge/HPX-25%2B%20merged%20PRs-2ea44f?style=flat-square&logo=github" alt="25+ merged HPX pull requests">
   </a>
-  <img src="https://img.shields.io/badge/upstream%20additions-11%2C307-0969da?style=flat-square" alt="11,307 upstream additions">
-  <img src="https://img.shields.io/badge/upstream%20deletions-2%2C307-8c959f?style=flat-square" alt="2,307 upstream deletions">
+  <a href="https://asquare.blog">
+    <img src="https://img.shields.io/badge/blog-asquare.blog-0969da?style=flat-square" alt="A Square Blog">
+  </a>
 </p>
 
 ---
 
 ### About
 
-I work at the boundary of **runtime systems, distributed communication, and AI infrastructure**.
+I work on **distributed AI data-plane systems**: the software that moves tensors and model state across accelerator memory, GPUs, nodes, and high-speed networks.
 
-My interests include collective communication algorithms, distributed execution,
-GPU communication, trace-driven performance analysis, and systems that make
-machine-learning workloads faster and easier to operate.
+My interests include collective communication, GPU-aware transfers, topology-aware transport, communication–computation overlap, and reproducible performance analysis.
 
-I am currently a **Google Summer of Code 2026 contributor with the STE||AR
-Group**, working on [`hpx::collectives`](https://github.com/TheHPXProject/hpx/tree/master/libs/full/collectives).
+I am a **Google Summer of Code 2026 contributor with the STE||AR Group**, working on [`hpx::collectives`](https://github.com/TheHPXProject/hpx/tree/master/libs/full/collectives).
 
 ---
 
-### Upstream work: HPX collectives
+### Selected work
 
-As of **July 2026**:
+#### [HPX Collectives](https://github.com/TheHPXProject/hpx/pulls?q=is%3Apr+author%3AiemAnshuman)
 
-- **17 merged upstream pull requests**
-- **11,307 additions and 2,307 deletions** across merged HPX PRs
-- Implemented or extended six hierarchical collective operations
-- Added distributed correctness tests, failure-path validation, and benchmarks
-- Tested changes locally and on the **LSU Rostam HPC cluster**
-
-> These numbers represent the complete GitHub diff of my merged HPX pull
-> requests, including implementation, tests, documentation, and review-driven
-> revisions.
-
-#### Selected merged pull requests
-
-| Area | Pull request | Contribution |
-|---|---|---|
-| Hierarchical reductions | [#7160](https://github.com/TheHPXProject/hpx/pull/7160) | Added hierarchical `all_reduce` and `all_gather` through reduce/gather and broadcast composition |
-| Adaptive execution | [#7193](https://github.com/TheHPXProject/hpx/pull/7193) | Added configurable flat-collective fallback for smaller communicator sizes |
-| Hierarchical exchange | [#7307](https://github.com/TheHPXProject/hpx/pull/7307) | Implemented three-phase hierarchical `all_to_all` |
-| Runtime semantics | [#7326](https://github.com/TheHPXProject/hpx/pull/7326) | Unified generation handling so one communicator can safely serve mixed collectives |
-| Prefix collectives | [#7343](https://github.com/TheHPXProject/hpx/pull/7343) | Added hierarchical `inclusive_scan` and `exclusive_scan` |
-| Reliability | [#7359](https://github.com/TheHPXProject/hpx/pull/7359) | Hardened communicator, barrier, site, root, and generation validation |
-| Payload layout | [#7375](https://github.com/TheHPXProject/hpx/pull/7375) | Flattened hierarchical gather and scatter payloads into contiguous storage |
-| All-to-all layout | [#7377](https://github.com/TheHPXProject/hpx/pull/7377) | Added flat uniform and ragged carriers for hierarchical all-to-all exchange |
-
-The initial hierarchical collective benchmark recorded a **1.34× speedup over
-the flat implementation at 32 processes** for the tested single-value DGX H100
-configuration.
-
-[View all of my HPX pull requests →](https://github.com/TheHPXProject/hpx/pulls?q=is%3Apr+author%3AiemAnshuman)
-
----
-
-### Current project
+* Implemented hierarchical `all_reduce`, `all_gather`, `all_to_all`, and prefix scans.
+* Diagnosed serialization, centralized data-path, and transport-threshold bottlenecks.
+* Reduced large-message `all_to_all` performance from **7.1× behind OpenMPI to approximately 1.2×**.
+* Added contiguous multidimensional payloads, communicator-generation management, benchmarks, and distributed regression tests.
 
 #### [CommCanary](https://github.com/iemAnshuman/CommCanary)
 
-A trace-driven regression canary for distributed LLM communication.
-
-CommCanary distils a full workload communication trace into a compact,
-model-free artifact while checking that the reduction preserves:
-
-- regression decisions;
-- pairwise configuration rankings;
-- latency distributions and tail behaviour;
-- operation ordering, arrival skew, and compute overlap.
+A model-free regression canary for distributed-LLM communication that preserves configuration rankings, regression decisions, and latency-tail behaviour.
 
 ```text
-workload trace → compile → canary → replay → compare → pass / warn / fail
-````
-
-It supports deterministic simulation, PyTorch Kineto trace import, PARAM
-comms-replay export, fidelity verification, tamper-evident reports, and
-fail-closed behavioural minimization.
+communication trace → canary → replay → verify
+```
 
 ---
 
 ### Current focus
 
-* Hierarchical collective algorithms and distributed runtime semantics
-* GPU communication primitives and compute–communication overlap
-* Communication-tail behaviour and configuration-ranking preservation
-* Performance benchmarking on clusters and accelerator systems
-* C++ correctness, ownership, concurrency, and low-level optimization
+* Accelerator data movement and GPU-aware communication
+* Collective algorithms and distributed runtime systems
+* Memory registration, staging, and asynchronous transfers
+* Communication–computation overlap
+* Cluster-scale performance profiling
 
 ---
 
-### Technical stack
+### Stack
 
-| Domain                  | Tools and technologies                                        |
-| ----------------------- | ------------------------------------------------------------- |
-| **Distributed systems** | C++20, HPX, collective algorithms, futures, synchronization   |
-| **AI infrastructure**   | PyTorch, NCCL, Triton, Kineto, PARAM comms-replay             |
-| **HPC**                 | Linux, Slurm, cluster benchmarking, CMake                     |
-| **Performance**         | Profiling, latency distributions, tail analysis, trace replay |
-| **General**             | Python, Bash, Docker, Git, NumPy                              |
-
----
-
-### Writing
-
-I write investigation-style articles about systems, performance, distributed
-computing, and machine learning infrastructure.
-
-[Read my research blog →](https://asquare.blog)
+`C++20` · `Python` · `CUDA` · `HPX` · `MPI` · `NCCL` · `LCI` · `Triton` · `Linux` · `Slurm`
 
 ---
 
@@ -128,5 +71,5 @@ computing, and machine learning infrastructure.
   ·
   <a href="https://x.com/justhuman567">X</a>
   ·
-  <a href="https://github.com/iemAnshuman">GitHub</a>
+  <a href="https://www.linkedin.com/in/anshuman-agrawal-65a306243">LinkedIn</a>
 </p>
