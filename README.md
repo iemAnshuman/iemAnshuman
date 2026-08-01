@@ -10,7 +10,7 @@
     <img src="https://img.shields.io/badge/GSoC-2026-f9ab00?style=flat-square&logo=google" alt="Google Summer of Code 2026">
   </a>
   <a href="https://github.com/TheHPXProject/hpx/pulls?q=is%3Apr+author%3AiemAnshuman+is%3Amerged">
-    <img src="https://img.shields.io/badge/HPX-25%2B%20merged%20PRs-2ea44f?style=flat-square&logo=github" alt="25+ merged HPX pull requests">
+    <img src="https://img.shields.io/badge/HPX-25%2B%20merged%20PRs-2ea44f?style=flat-square&logo=github" alt="20+ merged HPX pull requests">
   </a>
   <a href="https://asquare.blog">
     <img src="https://img.shields.io/badge/blog-asquare.blog-0969da?style=flat-square" alt="A Square Blog">
