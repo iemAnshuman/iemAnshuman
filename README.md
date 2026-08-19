@@ -1,75 +1,63 @@
-<h1 align="center">Anshuman Agrawal</h1>
+I work on distributed runtimes and accelerator communication: collective
+algorithms, GPU runtime behavior, and the measurement code around them.
 
-<p align="center">
-  <strong>Distributed AI Systems Researcher</strong><br>
-  <em>Accelerator communication, memory movement, and collective operations.</em>
-</p>
+Mostly C++, CUDA, HPX/MPI, Linux systems work, and performance experiments
+that try to make the failure mode measurable.
 
-<p align="center">
-  <a href="https://github.com/TheHPXProject/hpx">
-    <img src="https://img.shields.io/badge/GSoC-2026-f9ab00?style=flat-square&logo=google" alt="Google Summer of Code 2026">
-  </a>
-  <a href="https://github.com/TheHPXProject/hpx/pulls?q=is%3Apr+author%3AiemAnshuman+is%3Amerged">
-    <img src="https://img.shields.io/badge/HPX-20%2B%20merged%20PRs-2ea44f?style=flat-square&logo=github" alt="20+ merged HPX pull requests">
-  </a>
-  <a href="https://asquare.blog">
-    <img src="https://img.shields.io/badge/blog-asquare.blog-0969da?style=flat-square" alt="A Square Blog">
-  </a>
-</p>
+### Things that exist
 
----
+[**hpx::collectives**](https://github.com/TheHPXProject/hpx/pulls?q=is%3Apr+author%3AiemAnshuman+is%3Amerged) · `C++ / HPX / MPI`
 
-### About
+27 merged upstream PRs. Added hierarchical `all_reduce`, `all_gather`,
+`all_to_all`, `inclusive_scan`, and `exclusive_scan`; unified generation
+handling, flattened hierarchical payloads, hardened failure paths, and added
+size-based pairwise `all_to_all`.
 
-I work on **distributed AI data-plane systems**: the software that moves tensors and model state across accelerator memory, GPUs, nodes, and high-speed networks.
+The pairwise campaign covered 960 executions across 16–128 localities and
+4 B–64 KiB per destination.
 
-My interests include collective communication, GPU-aware transfers, topology-aware transport, communication–computation overlap, and reproducible performance analysis.
+[**CommCanary**](https://github.com/iemAnshuman/CommCanary) · `Python`
 
-I am a **Google Summer of Code 2026 contributor with the STE||AR Group**, working on [`hpx::collectives`](https://github.com/TheHPXProject/hpx/tree/master/libs/full/collectives).
+Source-verifiable distributed-communication canaries. Turns workload traces
+into replayable artifacts, then checks source correspondence, timing, rankings,
+and decision behavior instead of assuming a smaller trace preserved them.
 
----
+[**HAMi-core**](https://github.com/Project-HAMi/HAMi-core/pulls?q=is%3Apr+author%3AiemAnshuman) · `C / CUDA / Linux`
 
-### Selected work
+Fixed a post-initialization lock that could remain stuck after its owner was
+killed, replacing that path with process-recoverable POSIX record locking and
+adding concurrency regression coverage.
 
-#### [HPX Collectives](https://github.com/TheHPXProject/hpx/pulls?q=is%3Apr+author%3AiemAnshuman)
+### Current work
 
-* Implemented hierarchical `all_reduce`, `all_gather`, `all_to_all`, and prefix scans.
-* Diagnosed serialization, centralized data-path, and transport-threshold bottlenecks.
-* Reduced large-message `all_to_all` performance from **7.1× behind OpenMPI to approximately 1.2×**.
-* Added contiguous multidimensional payloads, communicator-generation management, benchmarks, and distributed regression tests.
+[**HAMi host-PID broker**](https://github.com/Project-HAMi/HAMi-core/pull/251) · `C / CUDA`
+Host-PID discovery without the temporary CUDA primary-context probe, plus
+CUDA-context accounting and fallback hardening.
 
-#### [CommCanary](https://github.com/iemAnshuman/CommCanary)
+[**vLLM symmetric memory**](https://github.com/vllm-project/vllm/pull/50182) · `Python / CUDA`
+Fixing `all_reduce` dispatch so two-shot symmetric-memory communication does
+not incorrectly depend on multicast support.
 
-A model-free regression canary for distributed-LLM communication that preserves configuration rankings, regression decisions, and latency-tail behaviour.
+[**WasmEdge fault handling**](https://github.com/WasmEdge/WasmEdge/pull/5214) · `C++ / POSIX`
+Working on signal-handler, alternate-stack, and `sigreturn` correctness for
+embedded runtimes.
 
-```text
-communication trace → canary → replay → verify
-```
+### Earlier
 
----
+[**high-performance-deep-learning**](https://github.com/iemAnshuman/high-performance-deep-learning) · `Python / Triton / C++`
 
-### Current focus
+Fused Triton kernels, MPI ring all-reduce, gradient bucketing, INT4 packing,
+and roofline-style performance experiments.
 
-* Accelerator data movement and GPU-aware communication
-* Collective algorithms and distributed runtime systems
-* Memory registration, staging, and asynchronous transfers
-* Communication–computation overlap
-* Cluster-scale performance profiling
+### Currently thinking about
 
----
-
-### Stack
-
-`C++20` · `Python` · `CUDA` · `HPX` · `MPI` · `NCCL` · `LCI` · `Triton` · `Linux` · `Slurm`
+GPU-aware communication, memory registration, runtime initialization,
+symmetric-memory collectives, transport progress, and how to make performance
+claims survive reproduction.
 
 ---
 
-<p align="center">
-  <a href="mailto:asquare567@gmail.com">Email</a>
-  ·
-  <a href="https://asquare.blog">Blog</a>
-  ·
-  <a href="https://x.com/justhuman567">X</a>
-  ·
-  <a href="https://www.linkedin.com/in/anshuman-agrawal-65a306243">LinkedIn</a>
-</p>
+[blog](https://asquare.blog) ·
+[email](mailto:asquare567@gmail.com) ·
+[x](https://x.com/justhuman567) ·
+[linkedin](https://www.linkedin.com/in/anshuman-agrawal-65a306243)
