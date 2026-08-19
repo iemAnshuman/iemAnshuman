@@ -34,14 +34,6 @@ adding concurrency regression coverage.
 Host-PID discovery without the temporary CUDA primary-context probe, plus
 CUDA-context accounting and fallback hardening.
 
-[**vLLM symmetric memory**](https://github.com/vllm-project/vllm/pull/50182) · `Python / CUDA`
-Fixing `all_reduce` dispatch so two-shot symmetric-memory communication does
-not incorrectly depend on multicast support.
-
-[**WasmEdge fault handling**](https://github.com/WasmEdge/WasmEdge/pull/5214) · `C++ / POSIX`
-Working on signal-handler, alternate-stack, and `sigreturn` correctness for
-embedded runtimes.
-
 ### Earlier
 
 [**high-performance-deep-learning**](https://github.com/iemAnshuman/high-performance-deep-learning) · `Python / Triton / C++`
